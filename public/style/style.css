@@ -14,9 +14,13 @@ body {
 
 body {
   display: grid;
-  grid-template-rows: auto 20px;
+  grid-template-rows: 1fr 20px;
 /*   font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif; */
   font-family: 'Montserrat', sans-serif;
+}
+
+.hidden {
+  display: none !important;
 }
 
 header {
@@ -30,13 +34,16 @@ header {
 footer {
   display: flex;
   align-items: center;
-  background: #eee;
-  padding-left: 10px;
-  border-top: 1px solid #eee;
+  justify-content: flex-end;
+  text-align: right;
+  background: black;
+  padding-right: 10px;
+  color: white;
+  font-size: 10px;
 }
 
 footer a {
- color: black;
+ color: white;
  margin-left: 6px;
 }
 
@@ -48,9 +55,7 @@ footer a {
 
 main {
   display: grid;
-  align-items: center;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-columns: 60vw 1fr;
   /* background-color: #006fa3;
   background-image: url("https://www.transparenttextures.com/patterns/washi.png"); */
   background: url('../assets/scales.png') center center fixed;
@@ -59,20 +64,17 @@ main {
    -o-background-size: 20%;
    background-size: 20%;
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-  border: 1px solid #d3d3d3;
 }
 
 .title {
-  align-self: flex-end;
-  margin: 30px auto 15px auto;
-  padding: 0 0 10px 0;
-  text-align: center;
+  color: white;
+  padding: 10px 20px 20px 20px;
   font-family: 'Noto Sans JP', sans-serif;
-  text-shadow: 1px 1px 1px white;
+  /* text-shadow: 1px 1px 1px white; */
 }
 
 .title h1 {
-  font-size: 20px;
+  font-size: 30px;
   text-transform: uppercase;
   margin-bottom: 0;
 }
@@ -81,27 +83,27 @@ main {
   padding: 0;
   margin: 0;
   font-size: 18px;
-  font-style: italic;
+  /* font-style: italic; */
 }
 
 .intro  {
   display: grid;
-  align-self: flex-start;
-  grid-template-columns: 2fr 1fr;
-  width: 90vw;
-  max-width: 800px;
+  grid-template-rows: 1fr 20px 3fr;
   border-radius: 4px;
-  height: 50vh;
   margin: 0 auto;
+  background: black;
 }
 
 .text-content-wrapper {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 25px 1fr;
-  overflow-y: scroll;
-  background: rgba(255, 255, 255, 0.8);
-  border: 3px solid rgba(0, 0, 0, 0.7);
+  grid-template-rows: 25px 350px; */
+  grid-column: 1;
+  padding-top: 20px;
+  background-color: #ffffff;
+  background-image: url(http://www.transparenttextures.com/patterns/arches.png);
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */  border: 1px solid rgba(0, 0, 0, 0.7);
+  border-top: 1px solid black;
 }
 
 .text-content-nav {
@@ -133,32 +135,87 @@ main {
 }
 
 .text-content-wrapper p {
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
   line-height: 1.4em;
   letter-spacing: 0.02em;
-  padding: 10px 15px 0 15px;
+  padding: 30px 30px;
+  width: 85%;
+  margin: 0 auto;
 }
 
-.portrait {
+.text-content {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+
+.intro-image {
   display: flex;
   justify-content: center;
-  background: url('../assets/hokusai-portrait.jpg');
-  background-size: 95%;
-  background-repeat: no-repeat;
-  background-position: center;
   overflow-y: hidden;
-  background-color: rgba(0, 0, 0, 0.7);
+  grid-column: 2;
+  border: 1px solid transparent;
+  border-top: none;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-bottom-right-radius: 5px;
 }
 
+.intro-portrait {
+  background: url('../assets/hokusai-portrait.jpg');
+  background-size: 95%;
+  background-position: center;
+  background-color: rgb(201, 195, 167);
+  background-repeat: no-repeat;
+
+}
+
+.intro-collage {
+  background: url('../assets/hokusai-collage.jpeg');
+  background-size: cover;
+}
+
+
 @media (max-width: 600px) {
-  .intro {
-    height: 70vh;
+  main {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 30vw 1fr;
   }
 
-  .portrait {
+  .intro {
+    grid-template-columns: 1fr;
+    grid-template-rows: 25vh 5vh 1fr;
+    height: initial;
+  }
+
+  .intro-image {
     grid-row: 1;
-    background-size: contain;
+    grid-column: 1;
+    background-size: 50%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+  }
+
+  .intro-portrait {
+    background-size: 50%;
+  }
+
+  .intro-collage {
+    background: url('../assets/hokusai-collage.jpeg');
+    background-size: cover;
+  }
+
+  .text-content-nav {
+    display: flex;
+    grid-row: 2;
+  }
+
+  .text-content-wrapper {
+    border-bottom-right-radius: 5px;
   }
 }
 
