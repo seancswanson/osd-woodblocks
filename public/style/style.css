@@ -55,15 +55,15 @@ footer a {
 
 main {
   display: grid;
-  grid-template-columns: 60vw 1fr;
-  /* background-color: #006fa3;
-  background-image: url("https://www.transparenttextures.com/patterns/washi.png"); */
-  background: url('../assets/scales.png') center center fixed;
+  grid-template-columns: 66.6vw 1fr;
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
    -webkit-background-size: 20%;
    -moz-background-size: 20%;
    -o-background-size: 20%;
    background-size: 20%;
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  overflow-y: hidden;
 }
 
 .title {
@@ -82,16 +82,16 @@ main {
 .title p {
   padding: 0;
   margin: 0;
-  font-size: 18px;
+  font-size: 24px;
   /* font-style: italic; */
 }
 
 .intro  {
   display: grid;
-  grid-template-rows: 1fr 20px 3fr;
-  border-radius: 4px;
+  grid-template-rows: 1fr 30px 2fr;
   margin: 0 auto;
   background: black;
+  overflow-y: scroll;
 }
 
 .text-content-wrapper {
@@ -99,11 +99,11 @@ main {
   grid-template-columns: 1fr;
   grid-template-rows: 25px 350px; */
   grid-column: 1;
-  padding-top: 20px;
   background-color: #ffffff;
-  background-image: url(http://www.transparenttextures.com/patterns/arches.png);
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */  border: 1px solid rgba(0, 0, 0, 0.7);
+  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   border-top: 1px solid black;
+  overflow-y: scroll;
 }
 
 .text-content-nav {
@@ -134,12 +134,53 @@ main {
   border-bottom: 1px dotted white;
 }
 
+.gallery-icon {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  margin-right: 5px;
+  background: url('../assets/gallery.svg');
+  background-size: cover;
+}
+
+.nav-button {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-self: center;
+  align-items: baseline;
+}
+
+  .nav-button p {
+  display: inline-block;
+  margin: 0;
+}
+
+.text-content-wrapper p:first-child {
+  padding-top: 2em;
+}
+
+.text-content-wrapper p:first-child:first-letter {
+  color: black;
+float: left;
+font-family: Georgia;
+font-size: 45px;
+line-height: 30px;
+padding-top: 4px;
+padding-right: 8px;
+padding-left: 3px;
+}
+
+.text-content-wrapper p:last-child {
+  padding-bottom: 40px;
+}
+
+
 .text-content-wrapper p {
-  background: rgba(255, 255, 255, 0.6);
   font-size: 14px;
   line-height: 1.4em;
   letter-spacing: 0.02em;
-  padding: 30px 30px;
+  padding: 10px 30px;
   width: 85%;
   margin: 0 auto;
 }
@@ -147,6 +188,10 @@ main {
 .text-content {
   height: 100%;
   overflow-y: scroll;
+}
+
+.artnet-link {
+  color: #fc4700;
 }
 
 
@@ -180,12 +225,12 @@ main {
 @media (max-width: 600px) {
   main {
     grid-template-columns: 1fr;
-    grid-template-rows: 30vw 1fr;
+    grid-template-rows: 33vw 1fr;
   }
 
   .intro {
     grid-template-columns: 1fr;
-    grid-template-rows: 25vh 5vh 1fr;
+    grid-template-rows: 32vh 30px 1fr;
     height: initial;
   }
 

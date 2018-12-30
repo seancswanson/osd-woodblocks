@@ -19,13 +19,14 @@
     el: document.querySelector('#bio-btn')
   },
   {
-    key: 'index',
-    el: document.querySelector('#index-btn')
+    key: 'gallery',
+    el: document.querySelector('#gallery-btn')
   }
 ];
 
   window.App = {
     init: function() {
+      var self = this;
       this.openSeadragonShown = false;
       this.introSection = 'about';
       // mobileSize.onchange = App.adjustIntroImage(App.introSection);
@@ -52,13 +53,10 @@
             introImage.classList.remove('intro-collage');
             introImage.classList.add('intro-portrait');
             introSection.style.gridTemplateColumns = '';
-          } else if (button.key === 'index') {
-            this.introSection = 'index';
-            aboutSection.classList.add('hidden');
-            bioSection.classList.add('hidden');
-            indexSection.classList.remove('hidden');
+          } else if (button.key === 'gallery') {
+            self.toggleOpenSeadragon();
+            introSection.classList.add('hidden');
             introImage.classList.add('hidden');
-            introSection.style.gridTemplateColumns = '1fr';
           }
         });
       });
@@ -67,7 +65,7 @@
       var self = this;
       if (!this.openSeadragonShown) {
         this.openSeadragonShown = !this.openSeadragonShown;
-        mainSection.style.gridTemplateColumns = '1fr 3fr';
+        mainSection.style.gridTemplateColumns = 'initial';
         openSeadragonViewer.style.display = 'block';
         var viewer = OpenSeadragon({
           id: 'openseadragon',
