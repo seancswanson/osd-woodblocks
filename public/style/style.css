@@ -2,272 +2,276 @@
 /* called by your view template */
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    background: black;
+  background: black;
 }
 
 html,
 body {
-    height: 100vh;
-    margin: 0;
-    padding: 0;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    /*   font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif; */
-    font-family: 'Montserrat', sans-serif;
+  /*   font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif; */
+  font-family: 'Montserrat', sans-serif;
 
-    display: -ms-grid;
-    display:     grid;
+  display: -ms-grid;
+  display: grid;
 
-    -ms-grid-rows: 1fr 20px;
-    grid-template-rows: 1fr 20px;
+  -ms-grid-rows: 1fr 20px;
+  grid-template-rows: 1fr 20px;
 }
 
 .hidden {
-    display: none !important;
+  display: none !important;
+}
+
+.visible {
+  display: block;
 }
 
 header {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -ms-flex-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -ms-flex-align: center;
 
-    padding-left: 10px;
+  padding-left: 10px;
 
-    border-bottom: 1px solid #eee;
-    background: #eee;
+  border-bottom: 1px solid #eee;
+  background: #eee;
 }
 
 footer {
-    font-size: 10px;
+  font-size: 10px;
 
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -ms-flex-align: center;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 
-    padding-right: 10px;
+  padding-right: 10px;
 
-    text-align: right;
+  text-align: right;
 
-    color: white;
-    background: black;
+  color: white;
+  background: black;
 }
 
 footer a {
-    margin-left: 6px;
+  margin-left: 6px;
 
-    color: white;
+  color: white;
 }
 
 main {
-    display: -ms-grid;
-    display:     grid;
-    overflow-y: hidden;
+  display: -ms-grid;
+  display: grid;
+  overflow-y: hidden;
 
-    background-color: #fff;
-    background-image: url('https://www.transparenttextures.com/patterns/light-paper-fibers.png');
-    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-    background-size: 20%;
+  background-color: #fff;
+  background-image: url('https://www.transparenttextures.com/patterns/light-paper-fibers.png');
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  background-size: 20%;
 
-    -ms-grid-columns: 66.6vw 1fr;
-    grid-template-columns: 66.6vw 1fr;
+  -ms-grid-columns: 66.6vw 1fr;
+  grid-template-columns: 66.6vw 1fr;
 }
 
 /* TITLE BLOCK */
 
 .title {
-    font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
 
-    display: -ms-grid;
-    display:     grid;
+  display: -ms-grid;
+  display: grid;
 
-    padding: 10px 20px;
+  padding: 10px 20px;
 
-    color: white;
+  color: white;
 
-    -ms-grid-columns: 4fr 1fr;
-    grid-template-columns: 4fr 1fr;
+  -ms-grid-columns: 4fr 1fr;
+  grid-template-columns: 4fr 1fr;
 }
 
 .title h1 {
-    font-size: 30px;
+  font-size: 30px;
 
-    -ms-flex-item-align: center;
-    align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
 
-    margin: 0;
+  margin: 0;
 
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
-
 .title-name {
-    font-size: 24px;
+  font-size: 24px;
 
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 
-    -ms-grid-column: 1;
-        grid-column: 1;
-    /* font-style: italic; */
+  -ms-grid-column: 1;
+  grid-column: 1;
+  /* font-style: italic; */
 }
 
 .title-signature {
-    font-size: 20px;
-    /* text-shadow: 14px 5.5px 2px rgba(144,168,192, 0.3); */
-    font-weight: lighter;
+  font-size: 20px;
+  /* text-shadow: 14px 5.5px 2px rgba(144,168,192, 0.3); */
+  font-weight: lighter;
 
-    -ms-flex-item-align: end;
-    align-self: end;
+  -ms-flex-item-align: end;
+  align-self: end;
 
-    width: 30px;
+  width: 30px;
 
-    -ms-grid-column: 2;
-        grid-column: 2;
-    -ms-grid-row-span: 2;
-    -ms-grid-row: 1;
-        grid-row: 1 / span 2;
-    justify-self: end;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-row: 1;
+  grid-row: 1 / span 2;
+  justify-self: end;
 }
 
 .title-life {
-    font-size: 12px;
-    font-style: italic;
+  font-size: 12px;
+  font-style: italic;
 
-    margin: 0;
+  margin: 0;
 
-    opacity: .3;
+  opacity: 0.3;
 
-    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)';
-    -ms-grid-column: 1;
-        grid-column: 1;
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)';
+  -ms-grid-column: 1;
+  grid-column: 1;
 }
 
 .intro {
-    display: -ms-grid;
-    display:     grid;
-    overflow-y: scroll;
+  display: -ms-grid;
+  display: grid;
+  overflow-y: scroll;
 
-    margin: 0 auto;
+  margin: 0 auto;
 
-    background: black;
+  background: black;
 
-    -ms-grid-rows: auto 30px 2fr;
-    grid-template-rows: auto 30px 2fr;
+  -ms-grid-rows: auto 30px 2fr;
+  grid-template-rows: auto 30px 2fr;
 }
 
 /* NAVIGATION BLOCK */
 
 .text-content-nav {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .text-content-nav button {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 12px;
-    font-weight: bold;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
 
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-        flex: 1;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 
-    cursor: pointer;
-    -webkit-transition: .2s all ease;
-            transition: .2s all ease;
-    text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+  text-transform: uppercase;
 
-    color: white;
-    border: none;
-    border-bottom: 1px solid transparent;
-    outline: none;
-    background-color: rgba(0, 0, 0, .7);
+  color: white;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .text-content-nav button:hover {
-    opacity: .9;
-    border-bottom: 1px dotted white;
+  opacity: 0.9;
+  border: 1px dotted white;
+  border-bottom: 0;
 
-    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=90)';
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=90)';
 }
 
 .text-content-nav button:focus {
-    border-bottom: 1px dotted white;
-    outline: none;
+  border-bottom: 1px dotted white;
+  outline: none;
 }
 
 .gallery-icon {
-    display: inline-block;
+  display: inline-block;
 
-    width: 10px;
-    height: 10px;
-    margin-right: 5px;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
 
-    background-size: cover;
+  background-size: cover;
 }
 
 .gallery-icon-black {
-    margin: 0;
-    margin-left: 3px;
+  margin: 0;
+  margin-left: 3px;
 
-    background-image: url('../assets/gallery-black.svg');
+  background-image: url('../assets/gallery-black.svg');
 }
 
 .gallery-icon-white {
-    background-image: url('../assets/gallery.svg');
+  background-image: url('../assets/gallery.svg');
 }
 
 .nav-button {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: baseline;
-    align-items: baseline;
-    -ms-flex-align: baseline;
-    -ms-flex-item-align: center;
-    align-self: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+  align-items: baseline;
+  -ms-flex-align: baseline;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 
-    height: 100%;
+  height: 100%;
 }
 
 .nav-button p {
-    display: inline-block;
+  display: inline-block;
 
-    margin: 0;
+  margin: 0;
 }
 
 /* TEXT CONTENT BLOCK */
 
 .text-content-wrapper {
-    position: relative;
-    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  position: relative;
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 
-    overflow-y: scroll;
+  overflow-y: scroll;
 
-    border-right: 22px solid rgba(0, 0, 0, .2);
-    border-left: 22px solid rgba(0, 0, 0, .2);
-    background-color: #fff;
-    background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+  border-right: 22px solid rgba(0, 0, 0, 0.1);
+  border-left: 22px solid rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
 
-    -ms-grid-column: 1;
-        grid-column: 1;
+  -ms-grid-column: 1;
+  grid-column: 1;
 }
 
 /* .text-content-wrapper::after {
@@ -286,240 +290,232 @@ main {
     border-right: 2px solid rgb(201, 195, 167);
 } */
 
-
 .text-content-wrapper p:first-child {
-    padding-top: 2em;
+  padding-top: 2em;
 }
 
 .text-content-wrapper p:first-child:first-letter {
-    font-family: Georgia;
-    font-size: 45px;
-    line-height: 30px;
+  font-family: Georgia;
+  font-size: 45px;
+  line-height: 30px;
 
-    float: left;
+  float: left;
 
-    padding-top: 4px;
-    padding-right: 8px;
-    padding-left: 3px;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-left: 3px;
 
-    color: black;
+  color: black;
 }
 
 .text-content-wrapper p:last-child {
-    padding-bottom: 40px;
+  padding-bottom: 40px;
 }
 
-
 .text-content-wrapper p {
-    font-size: 14px;
-    line-height: 1.4em;
+  font-size: 14px;
+  line-height: 1.4em;
 
-    width: 85%;
-    margin: 0 auto;
-    padding: 10px 30px;
+  width: 85%;
+  margin: 0 auto;
+  padding: 10px 30px;
 
-    letter-spacing: .02em;
+  letter-spacing: 0.02em;
 }
 
 .text-content-instructions {
-    font-size: 12px;
+  font-size: 12px;
 
-    display: block;
+  display: block;
 
-    width: 80%;
-    margin: 0 auto;
-    padding: 10px 30px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px 30px;
 
-    text-align: center;
+  text-align: center;
 
-    color: rgba(0, 0, 0, .6);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .gallery-span {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: bold;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: bold;
 
-    color: black;
+  color: black;
 }
 
 .text-content-divider {
-    width: 25%;
+  width: 25%;
 
-    opacity: .3;
+  opacity: 0.3;
 
-    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)';
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)';
 }
 
 .love {
-    text-decoration: none;
+  text-decoration: none;
 
-    color: black;
-    border-bottom: 1px dashed rgba(0, 0, 0, .2);
+  color: black;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
 }
 
 .artnet-link {
-    color: #fc4700;
+  color: #fc4700;
 }
 
+.main-image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-y: hidden;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 
-.intro-image {
+  -ms-grid-column: 2;
+  grid-column: 2;
+}
+
+.main-portrait {
+  background: url('../assets/hokusai-portrait.jpg');
+  background-color: rgb(201, 195, 167);
+  background-repeat: no-repeat;
+  background-position: 60%;
+  background-size: cover;
+}
+
+.main-collage {
+  background: url('../assets/hokusai-collage.jpeg');
+  background-size: cover;
+}
+
+@media (max-width: 600px) {
+  main {
+    overflow-y: initial;
+
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    -ms-grid-rows: 33vw 1fr;
+    grid-template-rows: 33vw 1fr;
+  }
+
+  .intro {
+    height: initial;
+
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    -ms-grid-rows: auto 30px 1fr;
+    grid-template-rows: auto 30px 1fr;
+  }
+
+  .main-image {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+    background-size: 50%;
+
+    -ms-grid-row: 1;
+    grid-row: 1;
+    -ms-grid-column: 1;
+    grid-column: 1;
+  }
+
+  .title h1 {
+    font-size: 7vw;
+  }
+
+  .title-name {
+    font-size: 4vw;
+  }
+
+  .title-life {
+    font-size: 2vw;
+  }
+
+  .main-portrait {
+    background-position: 25% 33%;
+    background-size: cover;
+  }
+
+  .main-collage {
+    background: url('../assets/hokusai-collage.jpeg');
+    background-size: cover;
+  }
+
+  .text-content-nav {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    overflow-y: hidden;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
 
-    -ms-grid-column: 2;
-        grid-column: 2;
-}
-
-.intro-portrait {
-    background: url('../assets/hokusai-portrait.jpg');
-    background-color: rgb(201, 195, 167);
-    background-repeat: no-repeat;
-    background-position: 60%;
-    background-size: cover;
-}
-
-.intro-collage {
-    background: url('../assets/hokusai-collage.jpeg');
-    background-size: cover;
-}
-
-
-@media (max-width: 600px) {
-    main {
-        overflow-y: initial;
-
-        -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
-        -ms-grid-rows: 33vw 1fr;
-        grid-template-rows: 33vw 1fr;
-    }
-
-    .intro {
-        height: initial;
-
-        -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
-        -ms-grid-rows: auto 30px 1fr;
-        grid-template-rows: auto 30px 1fr;
-    }
-
-    .intro-image {
-        border-bottom: 1px solid rgba(0, 0, 0, .6);
-        background-size: 50%;
-
-        -ms-grid-row: 1;
-            grid-row: 1;
-        -ms-grid-column: 1;
-            grid-column: 1;
-    }
-
-    .title h1 {
-        font-size: 7vw;
-    }
-
-    .title-name {
-        font-size: 4vw;
-    }
-
-    .title-life {
-        font-size: 2vw;
-    }
-
-    .intro-portrait {
-        background-position: 25% 33%;
-        background-size: cover;
-    }
-
-    .intro-collage {
-        background: url('../assets/hokusai-collage.jpeg');
-        background-size: cover;
-    }
-
-    .text-content-nav {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-
-        -ms-grid-row: 2;
-            grid-row: 2;
-    }
+    -ms-grid-row: 2;
+    grid-row: 2;
+  }
 }
 
 /* OPENSEADRAGON */
 
 #openseadragon {
-    display: none;
-
-    width: 100vw;
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
 
 .controls {
-    position: absolute;
-    z-index: 10;
-    bottom: 0;
-    left: 0;
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
 
-    display: -ms-grid;
-    display:     grid;
+  display: -ms-grid;
+  display: grid;
 
-    width: 100vw;
-    height: 40px;
+  width: 100vw;
+  height: 40px;
 
-    background: rgba(0, 0, 0, .8);
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .controls-left {
-    display: -ms-grid;
-    display:     grid;
-    align-items: center;
-    -ms-grid-row-align: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+  display: -ms-grid;
+  display: grid;
+  align-items: center;
+  -ms-grid-row-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 
-    width: 60px;
-
-    border-right: 1px solid pink;
+  width: 60px;
 }
 
-.back-button {
-    display: inline-block;
+.osd-back-button {
+  display: inline-block;
 
-    width: 30px;
-    height: 30px;
-    margin-right: 5px;
-    padding: -1px;
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  padding: -1px;
 
-    cursor: pointer;
-    -webkit-transition: .4s all ease;
-            transition: .4s all ease;
+  cursor: pointer;
+  -webkit-transition: 0.4s all ease;
+  transition: 0.4s all ease;
 
-    border-radius: 100%;
-    background-image: url(../assets/back.svg);
-    background-size: cover;
-    box-shadow: inset 0 0 0 2px #d3d3d3;
+  border-radius: 100%;
+  background-image: url(../assets/back.svg);
+  background-size: cover;
+  box-shadow: inset 0 0 0 2px #d3d3d3;
 }
 
-.back-button:hover {
-    box-shadow: inset 0 0 0 2px #708090;
+.osd-back-button:hover {
+  box-shadow: inset 0 0 0 2px #708090;
 }
 
 div[id*='navigator-'] {
-    padding: 3px;
+  padding: 3px;
 
-    border: none !important;
-    box-shadow: 0 0 1px 3px black;
+  border: none !important;
+  box-shadow: 0 0 1px 3px black;
 }
 
 div[id*='navigator-'][id$='displayregion'] {
-    border: 2px solid rgba(255, 255, 255, .6) !important;
-    border-radius: 2px;
-    background: transparent !important;
-    box-shadow: none !important;
+  border: 2px solid rgba(255, 255, 255, 0.6) !important;
+  border-radius: 2px;
+  background: transparent !important;
+  box-shadow: none !important;
 }

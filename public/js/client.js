@@ -1,102 +1,108 @@
-(function() {
+class ThirtySixViewsApp {
   //----------
-  var mainSection = document.querySelector('main');
-  var introSection = document.querySelector('.intro');
-  var aboutSection = document.querySelector('.about-section')
-  var bioSection = document.querySelector('.bio-section')
-  var indexSection = document.querySelector('.index-section')
-  var introImage = document.querySelector('.intro-image');
-  console.log(introImage);
-  var mobileSize = window.matchMedia('(max-width: 600px)')
-  var openSeadragonViewer = document.querySelector('#openseadragon');
+  constructor() {
+    //----------
+    // DOM Sections
+    this.mainSection = document.querySelector('main');
+    this.introSection = document.querySelector('.intro');
+    this.aboutSection = document.querySelector('.about-section');
+    this.bioSection = document.querySelector('.bio-section');
+    this.indexSection = document.querySelector('.index-section');
+    this.mainImage = document.querySelector('.main-image');
 
-  var introNavButtons = [{
-    key: 'about',
-    el: document.querySelector('#about-btn')
-  },
-  {
-    key: 'bio',
-    el: document.querySelector('#bio-btn')
-  },
-  {
-    key: 'gallery',
-    el: document.querySelector('#gallery-btn')
+    //----------
+    // OSD
+    this.openSeadragonViewer = document.querySelector('#openseadragon');
+    this.osdBackButton = document.querySelector('.osd-back-button');
+    this.openSeadragonShown = false;
+
+    this.introNavButtons = [
+      {
+        key: 'about',
+        el: document.querySelector('#about-btn')
+      },
+      {
+        key: 'bio',
+        el: document.querySelector('#bio-btn')
+      },
+      {
+        key: 'gallery',
+        el: document.querySelector('#gallery-btn')
+      }
+    ];
+
+    this.init();
   }
-];
 
-  window.App = {
-    init: function() {
-      var self = this;
-      this.openSeadragonShown = false;
-      this.introSection = 'about';
-      // mobileSize.onchange = App.adjustIntroImage(App.introSection);
-      console.log(mobileSize);
+  //----------
+  init = () => {
+    this.openSeadragonShown = false;
+    this.introSection = 'about';
 
-      introNavButtons.forEach(function(button) {
-        console.log(button.el);
-        button.el.addEventListener('click', function() {
-          if (button.key === 'about') {
-            this.introSection = 'about';
-            aboutSection.classList.remove('hidden');
-            bioSection.classList.add('hidden');
-            indexSection.classList.add('hidden');
-            introImage.classList.remove('hidden');
-            introImage.classList.add('intro-collage');
-            introImage.classList.remove('intro-portrait');
-            introSection.style.gridTemplateColumns = '';
-          } else if (button.key === 'bio') {
-            this.introSection = 'bio';
-            aboutSection.classList.add('hidden');
-            bioSection.classList.remove('hidden');
-            indexSection.classList.add('hidden');
-            introImage.classList.remove('hidden');
-            introImage.classList.remove('intro-collage');
-            introImage.classList.add('intro-portrait');
-            introSection.style.gridTemplateColumns = '';
-          } else if (button.key === 'gallery') {
-            self.toggleOpenSeadragon();
-            introSection.classList.add('hidden');
-            introImage.classList.add('hidden');
-          }
-        });
+    this.addButtonListeners();
+  };
+
+  //----------
+  addButtonListeners = () => {
+    //----------
+    // Main Navigation
+    this.introNavButtons.forEach(function(button) {
+      button.el.addEventListener('click', function() {
+        if (button.key === 'about') {
+          App.introSection = 'about';
+          App.aboutSection.classList.remove('hidden');
+          App.bioSection.classList.add('hidden');
+          App.indexSection.classList.add('hidden');
+          App.mainImage.classList.remove('hidden');
+          App.mainImage.classList.add('main-collage');
+          App.mainImage.classList.remove('main-portrait');
+        } else if (button.key === 'bio') {
+          App.introSection = 'bio';
+          App.aboutSection.classList.add('hidden');
+          App.bioSection.classList.remove('hidden');
+          App.indexSection.classList.add('hidden');
+          App.mainImage.classList.remove('hidden');
+          App.mainImage.classList.remove('main-collage');
+          App.mainImage.classList.add('main-portrait');
+        } else if (button.key === 'gallery') {
+          App.toggleOpenSeadragon();
+        }
       });
-    },
-    toggleOpenSeadragon: function() {
-      var self = this;
-      if (!this.openSeadragonShown) {
-        this.openSeadragonShown = !this.openSeadragonShown;
-        mainSection.classList.add('hidden');
-        openSeadragonViewer.style.display = 'block';
-        var viewer = OpenSeadragon({
-          id: 'openseadragon',
-          prefixUrl: '../lib/openseadragon/images/',
-          tileSources: '/assets/hokusai-great.dzi',
-          showNavigator: true
-        });
-      } else {
-        this.openSeadragonShown = !this.openSeadragonShown;
-        mainSection.classList.remove('hidden');
-        openSeadragonViewer.style.display = 'none';
-        viewer.destroy();
-      }
-    },
-    adjustIntroImage: function(section) {
-      if (mobileSize.matches) {
-        console.log('match', mobileSize, arguments);
-        if (section === 'about') {
-          introImage.style.backgroundPosition = 'center';
-          introImage.style.backgroundSize = '150%';
-        }
-      } else {
-        console.log('not ', mobileSize, arguments);
-        if (section === 'about') {
-          introImage.style.backgroundPosition = 'top left';
-          introImage.style.backgroundSize = '400%';
-        }
-      }
+    });
+
+    // OSD NAVIGATION
+    this.osdBackButton.addEventListener('click', this.toggleOpenSeadragon);
+  };
+
+  //----------
+  toggleOpenSeadragon = () => {
+    if (!this.openSeadragonShown) {
+      console.log('trying to show');
+      this.openSeadragonShown = true;
+      this.mainSection.classList.add('hidden');
+      console.log(this.openSeadragonViewer);
+      this.openSeadragonViewer.classList.remove('hidden');
+      this.createOSDViewer();
+    } else {
+      this.openSeadragonShown = false;
+      this.mainSection.classList.remove('hidden');
+      this.openSeadragonViewer.classList.add('hidden');
+      this.hideOSDViewer();
     }
-  }
+  };
 
-  App.init();
+  //----------
+  createOSDViewer = () => {
+    this.viewer = OpenSeadragon({
+      id: 'openseadragon',
+      prefixUrl: '../lib/openseadragon/images/',
+      tileSources: '/assets/hokusai-great.dzi',
+      showNavigator: true
+    });
+  };
 
-})();
+  //----------
+  hideOSDViewer = () => this.openSeadragonViewer.classList.add('hidden');
+}
+
+const App = new ThirtySixViewsApp();
