@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans+JP" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans+JP:300,400" rel="stylesheet">
     <link rel="stylesheet" href="/style/style.css">
   </head>
   <body>
@@ -15,20 +15,28 @@
       <div class="intro">
         <div class="title">
           <h1>The Majesty of The Thirty-Six Views of Mt. Fuji</h1>
-          <p>Katsushika Hokusai</p>
-          <p>北斎改為一筆</p>
+          <p class="title-name">Katsushika Hokusai</p>
+          <p class="title-signature">北斎改為一筆</p>
+          <!-- <p class="title-life">c. October 31, 1760 – May 10, 1849</p> -->
         </div>
         <div class="text-content-nav">
           <button class="nav-button" id="about-btn"><p>About</p></button>
           <button class="nav-button" id="bio-btn"><p>Bio</p></button>
-          <button class="nav-button" id="gallery-btn"><div class="gallery-icon"></div><p>Gallery</p></button>
+          <button class="nav-button" id="gallery-btn"><div class="gallery-icon gallery-icon-white"></div><p>Gallery</p></button>
         </div>
         <div class="text-content-wrapper about-section">
-          <p>Some artists lend their inspiration to human muses: Rodin had Claudel, Picasso had his <em>Weeping Woman</em> Dora Maar, and Warhol had Edie Sedgwick...</p>
+          <p>Welcome to an interactive gallery of the most iconic collection of Japanese woodblock art.</p>
+          <span class="text-content-instructions">To explore all 36 prints in high resoluton, select <div class="gallery-icon gallery-icon-black"></div> <span class="gallery-span">GALLERY</span> from the bar above.</span>
+          <hr class="text-content-divider">
+          <p>Some artists found inspiration in human muses: Rodin had Claudel, Picasso had his <em>Weeping Woman</em> Dora Maar, and Warhol had Edie Sedgwick...</p>
 
           <p>What strikes me most about Hokusai is his reverance for natural monuments in and of his home country, notably Mt. Fuji. It's no mystery that prints like <em>The Great Wave off Kanagawa</em> have transcended time to remain as iconic as they were when Hokusai was first working. His scenary captures every potentiality of one's observation of Fuji and manages to never overstate it's sublimity- the Mountain simply is.</p>
 
           <p>To me, in the context of Fuji in all of the four seasons and its different viewing angles in the series, I find it natural to relate to Hokusai with my own experiences of unspoiled beauty that I've stumbled upon in my lifetime. Despite the some 260 years separating Hokusai's and my own life, it seems the contemplation of nature and artistic representation of such subjects (especially in some circumstances where the subjects could be perilous) remains something ingrained in the human condition.</p>
+
+          <p>This project was crafted to honor Hokusai and the collection of artwork that has inspired me immensely. As of December 30th, 2018, I have yet to see any his pieces in person so this is the next best thing! Please enjoy and check out the source code and technologies used on <a href="github.com/seanthaswan/osd-woodblocks" class="osd-github-link">GitHub</a>.</p>
+
+          <p>I appreciate <em>you</em> for checking out <strong>The Majesty of The Thirty-Six Views of Mt. Fuji</strong>. ♡ <a href="seancswanson.com" class="love">Sean Swanson</a></p>
         </div>
         <div class="text-content-wrapper bio-section hidden">
             <div class="text-content bio">
@@ -44,8 +52,14 @@
         </div>
       </div>
       <div class="intro-image intro-collage"></div>
-      <div id="openseadragon"></div>
     </main>
+    <div id="openseadragon">
+      <div class="controls">
+        <div class="controls-left">
+          <div class="back-button"></div>
+        </div>
+      </div>
+    </div>
 
     <footer>
       &copy; 2018<a href="seancswanson.com">Sean Swanson</a>

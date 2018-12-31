@@ -65,7 +65,7 @@
       var self = this;
       if (!this.openSeadragonShown) {
         this.openSeadragonShown = !this.openSeadragonShown;
-        mainSection.style.gridTemplateColumns = 'initial';
+        mainSection.classList.add('hidden');
         openSeadragonViewer.style.display = 'block';
         var viewer = OpenSeadragon({
           id: 'openseadragon',
@@ -75,7 +75,7 @@
         });
       } else {
         this.openSeadragonShown = !this.openSeadragonShown;
-        introSection.style.display = 'block';
+        mainSection.classList.remove('hidden');
         openSeadragonViewer.style.display = 'none';
         viewer.destroy();
       }
