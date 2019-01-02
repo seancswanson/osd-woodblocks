@@ -93,11 +93,23 @@ class ThirtySixViewsApp {
 
   //----------
   createOSDViewer = () => {
+    const hokusaiDziSet = [];
+
+    for (let i = 1; i <= 36; i++) {
+      let path = `../assets/tilesources/hokusai-${i}.dzi`;
+
+      hokusaiDziSet.push(path);
+    }
+
     this.viewer = OpenSeadragon({
       id: 'openseadragon',
       prefixUrl: '../lib/openseadragon/images/',
-      tileSources: '/assets/hokusai-great.dzi',
-      showNavigator: true
+      tileSources: hokusaiDziSet,
+      showNavigator: true,
+      collectionMode: true,
+      collectionRows: 6,
+      collectionTileSize: 1024,
+      collectionTileMargin: 256
     });
   };
 

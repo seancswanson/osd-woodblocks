@@ -102,7 +102,7 @@ main {
 }
 
 .title h1 {
-  font-size: 30px;
+  font-size: 50px;
 
   -ms-flex-item-align: center;
   align-self: center;
@@ -125,7 +125,6 @@ main {
 
 .title-signature {
   font-size: 20px;
-  /* text-shadow: 14px 5.5px 2px rgba(144,168,192, 0.3); */
   font-weight: lighter;
 
   -ms-flex-item-align: end;
@@ -459,6 +458,7 @@ main {
 
   display: -ms-grid;
   display: grid;
+  grid-template-columns: 60px 1fr;
 
   width: 100vw;
   height: 40px;
@@ -474,8 +474,12 @@ main {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
 
-  width: 60px;
+.controls-middle {
+  align-self: center;
+  color: white;
+  opacity: 0.3;
 }
 
 .osd-back-button {

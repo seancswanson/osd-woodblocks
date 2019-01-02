@@ -11,7 +11,8 @@
     "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/preset-env": "^7.2.3",
     "babel-eslint": "8",
-    "eslint": "4.x"
+    "eslint": "4.x",
+    "shelljs": "^0.8.3"
   },
   "scripts": {
     "babel": "babel --presets @babel/env --plugins @babel/plugin-proposal-class-properties public/js/client.js -o public/build/main.bundle.js",

@@ -72,11 +72,22 @@ function ThirtySixViewsApp() {
   });
 
   _defineProperty(this, "createOSDViewer", function () {
+    var hokusaiDziSet = [];
+
+    for (var i = 1; i <= 36; i++) {
+      var path = "../assets/tilesources/hokusai-".concat(i, ".dzi");
+      hokusaiDziSet.push(path);
+    }
+
     _this.viewer = OpenSeadragon({
       id: 'openseadragon',
       prefixUrl: '../lib/openseadragon/images/',
-      tileSources: '/assets/hokusai-great.dzi',
-      showNavigator: true
+      tileSources: hokusaiDziSet,
+      showNavigator: true,
+      collectionMode: true,
+      collectionRows: 6,
+      collectionTileSize: 1024,
+      collectionTileMargin: 256
     });
   });
 

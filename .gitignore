@@ -5,3 +5,4 @@ yarn-error.log
 eslint-test.js
 yarn.lock
 public/js/client-old.js
+util-script
