@@ -13,7 +13,7 @@ class ThirtySixViewsApp {
     //----------
     // OSD
     this.openSeadragonViewer = document.querySelector('#openseadragon');
-    this.osdBackButton = document.querySelector('.osd-back-button');
+    // this.osdBackButton = document.querySelector('.osd-back-button');
     this.openSeadragonShown = false;
 
     this.introNavButtons = [
@@ -71,7 +71,7 @@ class ThirtySixViewsApp {
     });
 
     // OSD NAVIGATION
-    this.osdBackButton.addEventListener('click', this.toggleOpenSeadragon);
+    // this.osdBackButton.addEventListener('click', this.toggleOpenSeadragon);
   };
 
   //----------
@@ -105,7 +105,15 @@ class ThirtySixViewsApp {
       id: 'openseadragon',
       prefixUrl: '../lib/openseadragon/images/',
       tileSources: hokusaiDziSet,
-      showNavigator: true,
+      showNavigator: false,
+      minZoomImageRatio: 1,
+      maxZoomPixelRatio: 4,
+      homeFillsViewer: true,
+      visibilityRatio: 0.9,
+      gestureSettingsMouse: {
+        dblClickToZoom: true,
+        clickToZoom: false
+      },
       collectionMode: true,
       collectionRows: 6,
       collectionTileSize: 1024,

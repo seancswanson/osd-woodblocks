@@ -43,9 +43,8 @@ function ThirtySixViewsApp() {
         }
       });
     }); // OSD NAVIGATION
+    // this.osdBackButton.addEventListener('click', this.toggleOpenSeadragon);
 
-
-    _this.osdBackButton.addEventListener('click', _this.toggleOpenSeadragon);
   });
 
   _defineProperty(this, "toggleOpenSeadragon", function () {
@@ -83,7 +82,15 @@ function ThirtySixViewsApp() {
       id: 'openseadragon',
       prefixUrl: '../lib/openseadragon/images/',
       tileSources: hokusaiDziSet,
-      showNavigator: true,
+      showNavigator: false,
+      minZoomImageRatio: 1,
+      maxZoomPixelRatio: 4,
+      homeFillsViewer: true,
+      visibilityRatio: 0.9,
+      gestureSettingsMouse: {
+        dblClickToZoom: true,
+        clickToZoom: false
+      },
       collectionMode: true,
       collectionRows: 6,
       collectionTileSize: 1024,
@@ -105,8 +112,8 @@ function ThirtySixViewsApp() {
   this.mainImage = document.querySelector('.main-image'); //----------
   // OSD
 
-  this.openSeadragonViewer = document.querySelector('#openseadragon');
-  this.osdBackButton = document.querySelector('.osd-back-button');
+  this.openSeadragonViewer = document.querySelector('#openseadragon'); // this.osdBackButton = document.querySelector('.osd-back-button');
+
   this.openSeadragonShown = false;
   this.introNavButtons = [{
     key: 'about',

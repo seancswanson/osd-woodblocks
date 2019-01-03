@@ -55,11 +55,23 @@
     </main>
     <div class="hidden" id="openseadragon">
       <div class="controls">
-        <div class="controls-left">
-          <div class="osd-back-button"></div>
-        </div>
-        <div class="controls-middle">Metadata goin' here? Maybe underneath each tile instead?</div>
+        <div class="controls-button osd-back-button"></div>
+        <div class="controls-button" id="osd-home-button"></div>
+        <div class="controls-button"id="osd-zoom-in-button"></div>
+        <div class="controls-button" id="osd-zoom-out-button"></div>
       </div>
+      <div class="controls-info-modal">
+        <div class="control-info-source">
+          <p>Open access, public domain images sourced from:</p>
+          <p>The Metropolitan Museum of Art</p>
+          <p>NYC, NY.</p>
+          <a class="source-link" href="https://www.metmuseum.org/">metmuseum.org</a>
+          <a class="source-link" href="https://twitter.com/metmuseum/">@metmuseum</a>
+        </div>
+        <img src="../assets/icons/the-met.png" alt="" class="control-info-logo">
+      </div>
+      <div class="controls-button source-info-button"></div>
+      <div class="content-blocker"></div>
     </div>
 
     <footer>
