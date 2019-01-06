@@ -21,7 +21,7 @@
     "no-eval": ["error"],
     "no-implicit-globals": ["error"],
     "no-implied-eval": ["error"],
-    "no-invalid-this": ["error"],
+    "no-invalid-this": 0,
     "no-multi-spaces": [
       "error",
       {
@@ -115,18 +115,7 @@
   "globals": {
     "App": true,
     "$": false,
-    "scenes": true,
-    "_": false,
-    "Snap": false,
-    "moment": false,
-    "zot": false,
-    "s": false,
-    "EventEmitter": false,
-    "marked": false,
-    "p5": false,
-    "zxcvbn": false,
-    "Promise": false,
-    "v8n": false,
-    "TOTAWYSIWYG": false
+    "OpenSeadragon": false,
+    "SVG": false
   }
 }

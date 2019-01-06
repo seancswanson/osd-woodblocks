@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans+JP:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans+JP:200,300,400" rel="stylesheet">
     <link rel="stylesheet" href="/style/style.css">
   </head>
   <body>
@@ -16,7 +16,8 @@
         <div class="title">
           <h1>The Majesty of The Thirty-Six Views of Mt. Fuji</h1>
           <p class="title-name">Katsushika Hokusai</p>
-          <p class="title-signature">北斎改為一筆</p>
+          <img class="title-signature" src="../assets/hokusai-sig2.svg" onerror="this.src='../assets/hokusai-sig.png'">
+          <!-- <p class="title-signature">北斎改為一筆</p> -->
           <!-- <p class="title-life">c. October 31, 1760 – May 10, 1849</p> -->
         </div>
         <div class="text-content-nav">
@@ -59,8 +60,9 @@
         <div class="controls-button" id="osd-home-button"></div>
         <div class="controls-button"id="osd-zoom-in-button"></div>
         <div class="controls-button" id="osd-zoom-out-button"></div>
+        <div class="controls-button" id="osd-full-screen-button"></div>
       </div>
-      <div class="controls-info-modal">
+      <div class="controls-info-modal hidden">
         <div class="control-info-source">
           <p>Open access, public domain images sourced from:</p>
           <p>The Metropolitan Museum of Art</p>
@@ -71,18 +73,20 @@
         <img src="../assets/icons/the-met.png" alt="" class="control-info-logo">
       </div>
       <div class="controls-button source-info-button"></div>
-      <div class="content-blocker"></div>
+      <div class="content-blocker hidden"></div>
     </div>
 
     <footer>
-      &copy; 2018<a href="http://www.seancswanson.com">Sean Swanson</a>
+      &copy; 2018<a class="footer-link" href="http://www.seancswanson.com">Sean Swanson</a>
     </footer>
 
     <!-- include the Glitch button to show what the webpage is about and
           to make it easier for folks to view source and remix -->
     <!--     <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
     <script src="https://button.glitch.me/button.js"></script> -->
+    <script src="/lib/svg.min.js"></script>
     <script src="/lib/openseadragon/openseadragon.min.js"></script>
+    <script src="/lib/openseadragon/openseadragon-svg-overlay.min.js"></script>
     <script src="/build/main.bundle.js" defer></script>
 
 
