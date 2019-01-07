@@ -93,9 +93,11 @@ class ThirtySixViewsApp {
   toggleInfoModal = () => {
     if (!this.infoModalShown) {
       this.infoModalShown = true;
+      this.infoModal.classList.remove('hidden');
       this.infoModal.classList.remove('fade-out');
       this.contentBlocker.classList.remove('fade-out');
       this.infoModal.classList.add('fade-in');
+      this.contentBlocker.classList.remove('hidden');
       this.contentBlocker.classList.add('fade-in');
     } else {
       this.closeInfoModal();
@@ -105,6 +107,8 @@ class ThirtySixViewsApp {
   //----------
   closeInfoModal = () => {
     this.infoModalShown = false;
+    this.infoModal.classList.add('hidden');
+    this.contentBlocker.classList.add('hidden');
     this.infoModal.classList.remove('fade-in');
     this.contentBlocker.classList.remove('fade-in');
     this.infoModal.classList.add('fade-out');
