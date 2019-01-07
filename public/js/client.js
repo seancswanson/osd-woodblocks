@@ -23,8 +23,6 @@ class ThirtySixViewsApp {
     this.columns = 6;
     this.rows = 6;
 
-    // this.metadataElement = this.makeMetadataElement();
-
     this.introNavButtons = [
       {
         key: 'about',

@@ -371,8 +371,7 @@ function ThirtySixViewsApp() {
   this.infoModal = document.querySelector('.controls-info-modal');
   this.contentBlocker = document.querySelector('.content-blocker');
   this.columns = 6;
-  this.rows = 6; // this.metadataElement = this.makeMetadataElement();
-
+  this.rows = 6;
   this.introNavButtons = [{
     key: 'about',
     el: document.querySelector('#about-btn')
