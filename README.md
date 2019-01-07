@@ -1,13 +1,12 @@
 # The Majesty of The Thirty-Six Views of Mt. Fuji
 
----
-
-## An OpenSeadragon Experiment by Sean Swanson
+> A Tribute to Katsushika Hokusai
 
 ## Technologies
 
 - HTML
 - CSS
+- [OpenSeadragon](https://openseadragon.github.io/)
 - JavaScript (ES6)
 - Babel
 - Hosted on Glitch!
