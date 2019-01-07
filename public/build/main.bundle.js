@@ -67,11 +67,15 @@ function ThirtySixViewsApp() {
     if (!_this.infoModalShown) {
       _this.infoModalShown = true;
 
+      _this.infoModal.classList.remove('hidden');
+
       _this.infoModal.classList.remove('fade-out');
 
       _this.contentBlocker.classList.remove('fade-out');
 
       _this.infoModal.classList.add('fade-in');
+
+      _this.contentBlocker.classList.remove('hidden');
 
       _this.contentBlocker.classList.add('fade-in');
     } else {
@@ -81,6 +85,10 @@ function ThirtySixViewsApp() {
 
   _defineProperty(this, "closeInfoModal", function () {
     _this.infoModalShown = false;
+
+    _this.infoModal.classList.add('hidden');
+
+    _this.contentBlocker.classList.add('hidden');
 
     _this.infoModal.classList.remove('fade-in');
 
