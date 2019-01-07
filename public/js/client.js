@@ -54,7 +54,6 @@ class ThirtySixViewsApp {
           App.introSection = 'about';
           App.aboutSection.classList.remove('hidden');
           App.bioSection.classList.add('hidden');
-          App.indexSection.classList.add('hidden');
           App.mainImage.classList.remove('hidden');
           App.mainImage.classList.add('main-collage');
           App.mainImage.classList.remove('main-portrait');
@@ -62,7 +61,6 @@ class ThirtySixViewsApp {
           App.introSection = 'bio';
           App.aboutSection.classList.add('hidden');
           App.bioSection.classList.remove('hidden');
-          App.indexSection.classList.add('hidden');
           App.mainImage.classList.remove('hidden');
           App.mainImage.classList.remove('main-collage');
           App.mainImage.classList.add('main-portrait');
@@ -97,53 +95,22 @@ class ThirtySixViewsApp {
   toggleInfoModal = () => {
     if (!this.infoModalShown) {
       this.infoModalShown = true;
-      this.infoModal.classList.remove('hidden');
-      this.contentBlocker.classList.remove('hidden');
+      this.infoModal.classList.remove('fade-out');
+      this.contentBlocker.classList.remove('fade-out');
+      this.infoModal.classList.add('fade-in');
+      this.contentBlocker.classList.add('fade-in');
     } else {
       this.closeInfoModal();
     }
   };
 
-  // //----------
-  // makeMetadataElement = () => {
-  //   let imageData = {
-  //     imageNumber: '1',
-  //     titleEng: 'The Great Wave off Kanagawa',
-  //     titleKanji: '神奈川沖浪裏',
-  //     titleJp: 'Kanagawa oki nami-ura'
-  //   };
-  //
-  //   let div = document.createElement('div');
-  //
-  //   let imageNumber = document.createElement('p');
-  //   imageNumber.textContent = imageData.imageNumber;
-  //   imageNumber.setAttribute('class', 'metadata-image-number');
-  //   div.appendChild(imageNumber);
-  //
-  //   let titleEng = document.createElement('h1');
-  //   titleEng.textContent = imageData.titleEng;
-  //   titleEng.setAttribute('class', 'metadata-title-eng');
-  //   div.appendChild(titleEng);
-  //
-  //   let titleKanji = document.createElement('h2');
-  //   titleKanji.textContent = imageData.titleKanji;
-  //   titleKanji.setAttribute('class', 'metadata-title-kanji');
-  //   div.appendChild(titleKanji);
-  //
-  //   let titleJp = document.createElement('h2');
-  //   titleJp.textContent = imageData.titleJp;
-  //   titleJp.setAttribute('class', 'metadata-title-jp');
-  //   div.appendChild(titleJp);
-  //
-  //   div.setAttribute('id', 'hokusai-1');
-  //   this.openSeadragonViewer.appendChild(div);
-  // };
-
   //----------
   closeInfoModal = () => {
     this.infoModalShown = false;
-    this.infoModal.classList.add('hidden');
-    this.contentBlocker.classList.add('hidden');
+    this.infoModal.classList.remove('fade-in');
+    this.contentBlocker.classList.remove('fade-in');
+    this.infoModal.classList.add('fade-out');
+    this.contentBlocker.classList.add('fade-out');
   };
 
   //----------
@@ -161,6 +128,7 @@ class ThirtySixViewsApp {
       prefixUrl: '../lib/openseadragon/images/',
       tileSources: hokusaiDziSet,
       showNavigator: false,
+      defaultZoomLevel: 0,
       minZoomImageRatio: 1,
       maxZoomPixelRatio: 4,
       zoomInButton: 'osd-zoom-in-button',
@@ -171,17 +139,23 @@ class ThirtySixViewsApp {
       visibilityRatio: 0.2,
       gestureSettingsMouse: {
         dblClickToZoom: true,
-        clickToZoom: false
-      }
-      // collectionMode: true,
-      // collectionRows: 6,
-      // collectionTileSize: 1024,
-      // collectionTileMargin: 256
+        clickToZoom: true
+      },
+      placeholderFillStyle: 'rgba(0, 0, 0, 0.2)'
     });
 
     this.viewer.addHandler('open', function() {
       App.arrangeImages();
       App.createOSDOverlays();
+      console.log(App.viewer.viewport);
+      let oldBounds = App.viewer.viewport.getBounds();
+      let newBounds = new OpenSeadragon.Rect(
+        -0.75,
+        2.2,
+        10,
+        oldBounds.height / oldBounds.width
+      );
+      App.viewer.viewport.fitBounds(newBounds, true);
     });
   };
 
@@ -268,7 +242,7 @@ class ThirtySixViewsApp {
     let i, bounds, tiledImage;
 
     for (i = 0; i < count; i++) {
-      console.log('make card overlay', i);
+      // console.log('make card overlay', i);
       let metadata = this.hokusaiData[i];
       tiledImage = this.viewer.world.getItemAt(i);
       bounds = tiledImage.getBounds();
@@ -291,7 +265,10 @@ class ThirtySixViewsApp {
       this.makeCardText(draw, card, bounds, i);
     }
 
-    // Align Card Text
+    // Add resize handler
+    this.viewer.addHandler('resize', function() {
+      overlay.resize();
+    });
   };
 
   //----------
@@ -313,8 +290,6 @@ class ThirtySixViewsApp {
     let collectionNumberPosX = titleEngIsOneLiner ? 0.242 : 0.27;
     let collectionNumberPosY = titleEngIsOneLiner ? 0.01 : 0.03;
 
-    console.log('make card text', i);
-
     let titleEngLine1 =
       titleEng.length <= lineThreshold ?
         null :
@@ -324,8 +299,6 @@ class ThirtySixViewsApp {
       titleEng.length > lineThreshold ?
         titleEng.slice(indexToSplitLineAt) :
         null;
-
-    // console.log(titleEng, titleEngLine1, titleEngLine2);
 
     let collectionNumber = metadata.key;
 
@@ -371,7 +344,7 @@ class ThirtySixViewsApp {
   alignCardText = (bounds, titleEngIsOneLiner, titleEngLine1, i) => {
     let textCollection = document.querySelectorAll('[id*="SvgjsText"]');
     let engLine, engLine1, engLine2;
-    console.log(titleEngLine1);
+
     textCollection.forEach(function(collection) {
       let kanjiLine = collection.children[0];
       let jpLine = collection.children[1];
@@ -433,6 +406,18 @@ class ThirtySixViewsApp {
 
   //----------
   hideOSDViewer = () => this.openSeadragonViewer.classList.add('hidden');
+
+  //----------
+  setTiledImagePlaceholder = (tiledImage, ctx) => {
+    console;
+    let img = new Image();
+    img.src = '../assets/bg/felt.png';
+    img.onload = function() {
+      let pattern = ctx.createPattern(img, 'repeat');
+      ctx.fillStyle = pattern;
+      ctx.fillRect(0, 0, 300, 300);
+    };
+  };
 }
 
 const App = new ThirtySixViewsApp();

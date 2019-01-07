@@ -19,7 +19,6 @@ function ThirtySixViewsApp() {
           App.introSection = 'about';
           App.aboutSection.classList.remove('hidden');
           App.bioSection.classList.add('hidden');
-          App.indexSection.classList.add('hidden');
           App.mainImage.classList.remove('hidden');
           App.mainImage.classList.add('main-collage');
           App.mainImage.classList.remove('main-portrait');
@@ -27,7 +26,6 @@ function ThirtySixViewsApp() {
           App.introSection = 'bio';
           App.aboutSection.classList.add('hidden');
           App.bioSection.classList.remove('hidden');
-          App.indexSection.classList.add('hidden');
           App.mainImage.classList.remove('hidden');
           App.mainImage.classList.remove('main-collage');
           App.mainImage.classList.add('main-portrait');
@@ -69,9 +67,13 @@ function ThirtySixViewsApp() {
     if (!_this.infoModalShown) {
       _this.infoModalShown = true;
 
-      _this.infoModal.classList.remove('hidden');
+      _this.infoModal.classList.remove('fade-out');
 
-      _this.contentBlocker.classList.remove('hidden');
+      _this.contentBlocker.classList.remove('fade-out');
+
+      _this.infoModal.classList.add('fade-in');
+
+      _this.contentBlocker.classList.add('fade-in');
     } else {
       _this.closeInfoModal();
     }
@@ -80,9 +82,13 @@ function ThirtySixViewsApp() {
   _defineProperty(this, "closeInfoModal", function () {
     _this.infoModalShown = false;
 
-    _this.infoModal.classList.add('hidden');
+    _this.infoModal.classList.remove('fade-in');
 
-    _this.contentBlocker.classList.add('hidden');
+    _this.contentBlocker.classList.remove('fade-in');
+
+    _this.infoModal.classList.add('fade-out');
+
+    _this.contentBlocker.classList.add('fade-out');
   });
 
   _defineProperty(this, "createOSDViewer", function () {
@@ -98,6 +104,7 @@ function ThirtySixViewsApp() {
       prefixUrl: '../lib/openseadragon/images/',
       tileSources: hokusaiDziSet,
       showNavigator: false,
+      defaultZoomLevel: 0,
       minZoomImageRatio: 1,
       maxZoomPixelRatio: 4,
       zoomInButton: 'osd-zoom-in-button',
@@ -108,17 +115,18 @@ function ThirtySixViewsApp() {
       visibilityRatio: 0.2,
       gestureSettingsMouse: {
         dblClickToZoom: true,
-        clickToZoom: false // collectionMode: true,
-        // collectionRows: 6,
-        // collectionTileSize: 1024,
-        // collectionTileMargin: 256
-
-      }
+        clickToZoom: true
+      },
+      placeholderFillStyle: 'rgba(0, 0, 0, 0.2)'
     });
 
     _this.viewer.addHandler('open', function () {
       App.arrangeImages();
       App.createOSDOverlays();
+      console.log(App.viewer.viewport);
+      var oldBounds = App.viewer.viewport.getBounds();
+      var newBounds = new OpenSeadragon.Rect(-0.75, 2.2, 10, oldBounds.height / oldBounds.width);
+      App.viewer.viewport.fitBounds(newBounds, true);
     });
   });
 
@@ -198,7 +206,7 @@ function ThirtySixViewsApp() {
     var i, bounds, tiledImage;
 
     for (i = 0; i < count; i++) {
-      console.log('make card overlay', i);
+      // console.log('make card overlay', i);
       var metadata = _this.hokusaiData[i];
       tiledImage = _this.viewer.world.getItemAt(i);
       bounds = tiledImage.getBounds(); // Initialize SVG.js Wrapper
@@ -215,8 +223,12 @@ function ThirtySixViewsApp() {
       card.move(bounds.x, bounds.y - 0.125); // Make Card Text;
 
       _this.makeCardText(draw, card, bounds, i);
-    } // Align Card Text
+    } // Add resize handler
 
+
+    _this.viewer.addHandler('resize', function () {
+      overlay.resize();
+    });
   });
 
   _defineProperty(this, "makeCardText", function (draw, card, bounds, i) {
@@ -231,10 +243,8 @@ function ThirtySixViewsApp() {
     var titleEngIsOneLiner = titleEng.length <= lineThreshold;
     var collectionNumberPosX = titleEngIsOneLiner ? 0.242 : 0.27;
     var collectionNumberPosY = titleEngIsOneLiner ? 0.01 : 0.03;
-    console.log('make card text', i);
     var titleEngLine1 = titleEng.length <= lineThreshold ? null : titleEng.slice(0, indexToSplitLineAt);
-    var titleEngLine2 = titleEng.length > lineThreshold ? titleEng.slice(indexToSplitLineAt) : null; // console.log(titleEng, titleEngLine1, titleEngLine2);
-
+    var titleEngLine2 = titleEng.length > lineThreshold ? titleEng.slice(indexToSplitLineAt) : null;
     var collectionNumber = metadata.key;
     var text = card.text(function (add) {
       add.tspan(titleKanji).font({
@@ -272,7 +282,6 @@ function ThirtySixViewsApp() {
   _defineProperty(this, "alignCardText", function (bounds, titleEngIsOneLiner, titleEngLine1, i) {
     var textCollection = document.querySelectorAll('[id*="SvgjsText"]');
     var engLine, engLine1, engLine2;
-    console.log(titleEngLine1);
     textCollection.forEach(function (collection) {
       var kanjiLine = collection.children[0];
       var jpLine = collection.children[1];
@@ -329,6 +338,18 @@ function ThirtySixViewsApp() {
 
   _defineProperty(this, "hideOSDViewer", function () {
     return _this.openSeadragonViewer.classList.add('hidden');
+  });
+
+  _defineProperty(this, "setTiledImagePlaceholder", function (tiledImage, ctx) {
+    console;
+    var img = new Image();
+    img.src = '../assets/bg/felt.png';
+
+    img.onload = function () {
+      var pattern = ctx.createPattern(img, 'repeat');
+      ctx.fillStyle = pattern;
+      ctx.fillRect(0, 0, 300, 300);
+    };
   });
 
   //----------
