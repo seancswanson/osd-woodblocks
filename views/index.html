@@ -61,18 +61,20 @@
         <div class="controls-button" id="osd-zoom-out-button"></div>
         <div class="controls-button" id="osd-full-screen-button"></div>
       </div>
-      <div class="controls-info-modal hidden">
-        <div class="control-info-source">
-          <p>Open access, public domain images sourced from:</p>
-          <p>The Metropolitan Museum of Art</p>
-          <p>NYC, NY.</p>
-          <a class="source-link" href="https://www.metmuseum.org/">metmuseum.org</a>
-          <a class="source-link" href="https://twitter.com/metmuseum/">@metmuseum</a>
+      <div class="controls-info-container">
+        <div class="controls-info-modal">
+          <div class="control-info-source">
+            <p>Open access, public domain images sourced from:</p>
+            <p>The Metropolitan Museum of Art</p>
+            <p>NYC, NY.</p>
+            <a class="source-link" href="https://www.metmuseum.org/">metmuseum.org</a>
+            <a class="source-link" href="https://twitter.com/metmuseum/">@metmuseum</a>
+          </div>
+          <img src="../assets/icons/the-met.png" alt="" class="control-info-logo">
         </div>
-        <img src="../assets/icons/the-met.png" alt="" class="control-info-logo">
       </div>
       <div class="controls-button source-info-button"></div>
-      <div class="content-blocker hidden"></div>
+      <div class="content-blocker"></div>
     </div>
 
     <footer>
@@ -83,6 +85,7 @@
           to make it easier for folks to view source and remix -->
     <!--     <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
     <script src="https://button.glitch.me/button.js"></script> -->
+    <script src="/lib/jquery-3.3.1.min.js"></script>
     <script src="/lib/svg.min.js"></script>
     <script src="/lib/openseadragon/openseadragon.min.js"></script>
     <script src="/lib/openseadragon/openseadragon-svg-overlay.min.js"></script>

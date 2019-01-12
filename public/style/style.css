@@ -505,11 +505,16 @@ main {
   justify-items: center;
 }
 
+.controls-info-container {
+  display: none;
+  z-index: 15;
+}
+
 .controls-info-modal {
   position: absolute;
-  z-index: 15;
   top: 50%;
   left: 50%;
+  z-index: 15;
 
   display: -ms-grid;
 
@@ -530,8 +535,6 @@ main {
   transition: 0.4s all ease;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-
-  opacity: 0;
 
   -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
   border: 2px solid rgba(30, 30, 30, 0.7);
@@ -562,7 +565,8 @@ main {
 
 .content-blocker {
   position: absolute;
-  z-index: 3;
+  display: none;
+  z-index: 14;
 
   width: 100vw;
   height: 100vh;
@@ -570,8 +574,6 @@ main {
   cursor: pointer;
   -webkit-transition: 0.4s all ease;
   transition: 0.4s all ease;
-
-  opacity: 0;
 
   -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
   background: rgba(0, 0, 0, 0.7);

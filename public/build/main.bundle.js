@@ -66,37 +66,18 @@ function ThirtySixViewsApp() {
   _defineProperty(this, "toggleInfoModal", function () {
     if (!_this.infoModalShown) {
       _this.infoModalShown = true;
-
-      _this.infoModal.classList.remove('hidden');
-
-      _this.infoModal.classList.remove('fade-out');
-
-      _this.contentBlocker.classList.remove('fade-out');
-
-      _this.infoModal.classList.add('fade-in');
-
-      _this.contentBlocker.classList.remove('hidden');
-
-      _this.contentBlocker.classList.add('fade-in');
+      $('.controls-info-container').fadeIn();
+      $('.content-blocker').fadeIn();
     } else {
+      _this.infoModalShown = false;
+
       _this.closeInfoModal();
     }
   });
 
   _defineProperty(this, "closeInfoModal", function () {
-    _this.infoModalShown = false;
-
-    _this.infoModal.classList.add('hidden');
-
-    _this.contentBlocker.classList.add('hidden');
-
-    _this.infoModal.classList.remove('fade-in');
-
-    _this.contentBlocker.classList.remove('fade-in');
-
-    _this.infoModal.classList.add('fade-out');
-
-    _this.contentBlocker.classList.add('fade-out');
+    $('.controls-info-container').fadeOut();
+    $('.content-blocker').fadeOut();
   });
 
   _defineProperty(this, "createOSDViewer", function () {
@@ -133,7 +114,7 @@ function ThirtySixViewsApp() {
       App.createOSDOverlays();
       console.log(App.viewer.viewport);
       var oldBounds = App.viewer.viewport.getBounds();
-      var newBounds = new OpenSeadragon.Rect(-0.75, 2.2, 10, oldBounds.height / oldBounds.width);
+      var newBounds = new OpenSeadragon.Rect(-0.25, 0.2, 2, oldBounds.height / oldBounds.width);
       App.viewer.viewport.fitBounds(newBounds, true);
     });
   });

@@ -93,26 +93,18 @@ class ThirtySixViewsApp {
   toggleInfoModal = () => {
     if (!this.infoModalShown) {
       this.infoModalShown = true;
-      this.infoModal.classList.remove('hidden');
-      this.infoModal.classList.remove('fade-out');
-      this.contentBlocker.classList.remove('fade-out');
-      this.infoModal.classList.add('fade-in');
-      this.contentBlocker.classList.remove('hidden');
-      this.contentBlocker.classList.add('fade-in');
+      $('.controls-info-container').fadeIn();
+      $('.content-blocker').fadeIn();
     } else {
+      this.infoModalShown = false;
       this.closeInfoModal();
     }
   };
 
   //----------
   closeInfoModal = () => {
-    this.infoModalShown = false;
-    this.infoModal.classList.add('hidden');
-    this.contentBlocker.classList.add('hidden');
-    this.infoModal.classList.remove('fade-in');
-    this.contentBlocker.classList.remove('fade-in');
-    this.infoModal.classList.add('fade-out');
-    this.contentBlocker.classList.add('fade-out');
+    $('.controls-info-container').fadeOut();
+    $('.content-blocker').fadeOut();
   };
 
   //----------
@@ -152,9 +144,9 @@ class ThirtySixViewsApp {
       console.log(App.viewer.viewport);
       let oldBounds = App.viewer.viewport.getBounds();
       let newBounds = new OpenSeadragon.Rect(
-        -0.75,
-        2.2,
-        10,
+        -0.25,
+        0.2,
+        2,
         oldBounds.height / oldBounds.width
       );
       App.viewer.viewport.fitBounds(newBounds, true);
