@@ -14,21 +14,19 @@ function ThirtySixViewsApp() {
     //----------
     // Main Navigation
     _this.introNavButtons.forEach(function (button) {
-      button.el.addEventListener('click', function () {
+      button.$el.on('click', function () {
         if (button.key === 'about') {
           App.introSection = 'about';
-          App.aboutSection.classList.remove('hidden');
-          App.bioSection.classList.add('hidden');
-          App.mainImage.classList.remove('hidden');
-          App.mainImage.classList.add('main-collage');
-          App.mainImage.classList.remove('main-portrait');
+          App.$aboutSection.fadeIn(App.fadeSpeed);
+          App.$bioSection.fadeOut(App.fadeSpeed);
+          App.$mainImage.addClass('main-collage');
+          App.$mainImage.removeClass('main-portrait');
         } else if (button.key === 'bio') {
           App.introSection = 'bio';
-          App.aboutSection.classList.add('hidden');
-          App.bioSection.classList.remove('hidden');
-          App.mainImage.classList.remove('hidden');
-          App.mainImage.classList.remove('main-collage');
-          App.mainImage.classList.add('main-portrait');
+          App.$aboutSection.fadeOut(App.fadeSpeed);
+          App.$bioSection.fadeIn(App.fadeSpeed);
+          App.$mainImage.removeClass('main-collage');
+          App.$mainImage.addClass('main-portrait');
         } else if (button.key === 'gallery') {
           App.toggleOpenSeadragon();
         }
@@ -36,38 +34,36 @@ function ThirtySixViewsApp() {
     }); // OSD NAVIGATION
 
 
-    _this.osdBackButton.addEventListener('click', _this.toggleOpenSeadragon);
+    _this.$osdBackButton.on('click', _this.toggleOpenSeadragon);
 
-    _this.osdInfoButton.addEventListener('click', _this.toggleInfoModal);
+    _this.$osdInfoButton.on('click', _this.toggleInfoModal);
 
-    _this.contentBlocker.addEventListener('click', _this.toggleInfoModal);
+    _this.$contentBlocker.on('click', _this.toggleInfoModal);
   });
 
   _defineProperty(this, "toggleOpenSeadragon", function () {
     if (!_this.openSeadragonShown) {
       _this.openSeadragonShown = true;
 
-      _this.mainSection.classList.add('hidden');
+      _this.$mainSection.fadeOut(_this.fadeSpeed);
 
-      _this.openSeadragonViewer.classList.remove('hidden');
+      _this.$openSeadragonViewer.fadeIn(_this.fadeSpeed);
 
       _this.createOSDViewer();
     } else {
       _this.openSeadragonShown = false;
 
-      _this.mainSection.classList.remove('hidden');
+      _this.$mainSection.fadeIn(_this.fadeSpeed);
 
-      _this.openSeadragonViewer.classList.add('hidden');
-
-      _this.hideOSDViewer();
+      _this.$openSeadragonViewer.fadeOut(_this.fadeSpeed);
     }
   });
 
   _defineProperty(this, "toggleInfoModal", function () {
     if (!_this.infoModalShown) {
       _this.infoModalShown = true;
-      $('.controls-info-container').fadeIn();
-      $('.content-blocker').fadeIn();
+      $('.controls-info-container').fadeIn(_this.fadeSpeed);
+      $('.content-blocker').fadeIn(_this.fadeSpeed);
     } else {
       _this.infoModalShown = false;
 
@@ -76,8 +72,8 @@ function ThirtySixViewsApp() {
   });
 
   _defineProperty(this, "closeInfoModal", function () {
-    $('.controls-info-container').fadeOut();
-    $('.content-blocker').fadeOut();
+    $('.controls-info-container').fadeOut(_this.fadeSpeed);
+    $('.content-blocker').fadeOut(App.fadeSpeed);
   });
 
   _defineProperty(this, "createOSDViewer", function () {
@@ -112,7 +108,6 @@ function ThirtySixViewsApp() {
     _this.viewer.addHandler('open', function () {
       App.arrangeImages();
       App.createOSDOverlays();
-      console.log(App.viewer.viewport);
       var oldBounds = App.viewer.viewport.getBounds();
       var newBounds = new OpenSeadragon.Rect(-0.25, 0.2, 2, oldBounds.height / oldBounds.width);
       App.viewer.viewport.fitBounds(newBounds, true);
@@ -195,7 +190,6 @@ function ThirtySixViewsApp() {
     var i, bounds, tiledImage;
 
     for (i = 0; i < count; i++) {
-      // console.log('make card overlay', i);
       var metadata = _this.hokusaiData[i];
       tiledImage = _this.viewer.world.getItemAt(i);
       bounds = tiledImage.getBounds(); // Initialize SVG.js Wrapper
@@ -325,12 +319,7 @@ function ThirtySixViewsApp() {
     _this.hokusaiData = data;
   });
 
-  _defineProperty(this, "hideOSDViewer", function () {
-    return _this.openSeadragonViewer.classList.add('hidden');
-  });
-
   _defineProperty(this, "setTiledImagePlaceholder", function (tiledImage, ctx) {
-    console;
     var img = new Image();
     img.src = '../assets/bg/felt.png';
 
@@ -343,33 +332,33 @@ function ThirtySixViewsApp() {
 
   //----------
   // DOM Sections
-  this.mainSection = document.querySelector('main');
-  this.introSection = document.querySelector('.intro');
-  this.aboutSection = document.querySelector('.about-section');
-  this.bioSection = document.querySelector('.bio-section');
-  this.indexSection = document.querySelector('.index-section');
-  this.mainImage = document.querySelector('.main-image');
-  this.introSection = 'about'; //----------
+  this.$mainSection = $('main');
+  this.$aboutSection = $('.about-section');
+  this.$bioSection = $('.bio-section');
+  this.$mainImage = $('.main-image');
+  this.introSection = 'about';
+  this.fadeSpeed = 300; // milliseconds
+  //----------
   // OSD MODE
 
   this.openSeadragonShown = false;
   this.infoModalShown = false;
-  this.openSeadragonViewer = document.querySelector('#openseadragon');
-  this.osdBackButton = document.querySelector('.osd-back-button');
-  this.osdInfoButton = document.querySelector('.source-info-button');
-  this.infoModal = document.querySelector('.controls-info-modal');
-  this.contentBlocker = document.querySelector('.content-blocker');
+  this.$openSeadragonViewer = $('#openseadragon');
+  this.$osdBackButton = $('.osd-back-button');
+  this.$osdInfoButton = $('.source-info-button');
+  this.$infoModal = $('.controls-info-modal');
+  this.$contentBlocker = $('.content-blocker');
   this.columns = 6;
   this.rows = 6;
   this.introNavButtons = [{
     key: 'about',
-    el: document.querySelector('#about-btn')
+    $el: $('#about-btn')
   }, {
     key: 'bio',
-    el: document.querySelector('#bio-btn')
+    $el: $('#bio-btn')
   }, {
     key: 'gallery',
-    el: document.querySelector('#gallery-btn')
+    $el: $('#gallery-btn')
   }];
   this.addButtonListeners();
   this.getMetadata(this.saveMetadata);

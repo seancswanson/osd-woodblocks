@@ -32,11 +32,13 @@ body {
 .fade-in {
   opacity: 1 !important;
   -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+  filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
 }
 
 .fade-out {
   opacity: 0 !important;
   -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+  filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
 }
 .visible {
   display: block;
@@ -106,6 +108,8 @@ main {
   display: -ms-grid;
   display: grid;
 
+  background: black;
+
   -ms-grid-columns: auto 1fr;
 
   grid-template-columns: auto 1fr;
@@ -140,6 +144,7 @@ main {
   opacity: 0.8;
 
   -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=80)';
+  filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=80)';
 
   -ms-grid-column: 1;
   /* font-style: italic; */
@@ -175,6 +180,7 @@ main {
   opacity: 0.3;
 
   -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)';
+  filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)';
   -ms-grid-column: 1;
 }
 
@@ -188,6 +194,7 @@ main {
   margin: 0 auto;
 
   background: black;
+  background-image: url('../assets/bg/black-paper.png');
 
   -ms-grid-rows: auto 30px 2fr;
 }
@@ -227,6 +234,7 @@ main {
   border-bottom: 0;
 
   -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=90)';
+  filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=90)';
 }
 
 .text-content-nav button:focus {
@@ -294,6 +302,10 @@ main {
   -ms-grid-column: 1;
 }
 
+.bio-section {
+  display: none;
+}
+
 .text-content-wrapper p:first-child {
   padding-top: 2em;
 }
@@ -354,6 +366,7 @@ main {
   opacity: 0.3;
 
   -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)';
+  filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)';
 }
 
 .love {
@@ -464,6 +477,7 @@ main {
 #openseadragon {
   width: 100vw;
   height: calc(100vh - 20px);
+  display: none;
 }
 
 .openseadragon-canvas {
@@ -537,6 +551,7 @@ main {
   transform: translate(-50%, -50%);
 
   -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+  filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
   border: 2px solid rgba(30, 30, 30, 0.7);
   border-radius: 5px;
   background: white;
@@ -576,6 +591,7 @@ main {
   transition: 0.4s all ease;
 
   -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+  filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
   background: rgba(0, 0, 0, 0.7);
 }
 
@@ -618,6 +634,7 @@ main {
   opacity: 0.3;
 
   -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)';
+  filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)';
   color: white;
 }
 

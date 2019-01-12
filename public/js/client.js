@@ -3,38 +3,37 @@ class ThirtySixViewsApp {
   constructor() {
     //----------
     // DOM Sections
-    this.mainSection = document.querySelector('main');
-    this.introSection = document.querySelector('.intro');
-    this.aboutSection = document.querySelector('.about-section');
-    this.bioSection = document.querySelector('.bio-section');
-    this.indexSection = document.querySelector('.index-section');
-    this.mainImage = document.querySelector('.main-image');
+    this.$mainSection = $('main');
+    this.$aboutSection = $('.about-section');
+    this.$bioSection = $('.bio-section');
+    this.$mainImage = $('.main-image');
     this.introSection = 'about';
+    this.fadeSpeed = 300; // milliseconds
 
     //----------
     // OSD MODE
     this.openSeadragonShown = false;
     this.infoModalShown = false;
-    this.openSeadragonViewer = document.querySelector('#openseadragon');
-    this.osdBackButton = document.querySelector('.osd-back-button');
-    this.osdInfoButton = document.querySelector('.source-info-button');
-    this.infoModal = document.querySelector('.controls-info-modal');
-    this.contentBlocker = document.querySelector('.content-blocker');
+    this.$openSeadragonViewer = $('#openseadragon');
+    this.$osdBackButton = $('.osd-back-button');
+    this.$osdInfoButton = $('.source-info-button');
+    this.$infoModal = $('.controls-info-modal');
+    this.$contentBlocker = $('.content-blocker');
     this.columns = 6;
     this.rows = 6;
 
     this.introNavButtons = [
       {
         key: 'about',
-        el: document.querySelector('#about-btn')
+        $el: $('#about-btn')
       },
       {
         key: 'bio',
-        el: document.querySelector('#bio-btn')
+        $el: $('#bio-btn')
       },
       {
         key: 'gallery',
-        el: document.querySelector('#gallery-btn')
+        $el: $('#gallery-btn')
       }
     ];
 
@@ -47,21 +46,19 @@ class ThirtySixViewsApp {
     //----------
     // Main Navigation
     this.introNavButtons.forEach(function(button) {
-      button.el.addEventListener('click', function() {
+      button.$el.on('click', function() {
         if (button.key === 'about') {
           App.introSection = 'about';
-          App.aboutSection.classList.remove('hidden');
-          App.bioSection.classList.add('hidden');
-          App.mainImage.classList.remove('hidden');
-          App.mainImage.classList.add('main-collage');
-          App.mainImage.classList.remove('main-portrait');
+          App.$aboutSection.fadeIn(App.fadeSpeed);
+          App.$bioSection.fadeOut(App.fadeSpeed);
+          App.$mainImage.addClass('main-collage');
+          App.$mainImage.removeClass('main-portrait');
         } else if (button.key === 'bio') {
           App.introSection = 'bio';
-          App.aboutSection.classList.add('hidden');
-          App.bioSection.classList.remove('hidden');
-          App.mainImage.classList.remove('hidden');
-          App.mainImage.classList.remove('main-collage');
-          App.mainImage.classList.add('main-portrait');
+          App.$aboutSection.fadeOut(App.fadeSpeed);
+          App.$bioSection.fadeIn(App.fadeSpeed);
+          App.$mainImage.removeClass('main-collage');
+          App.$mainImage.addClass('main-portrait');
         } else if (button.key === 'gallery') {
           App.toggleOpenSeadragon();
         }
@@ -69,23 +66,22 @@ class ThirtySixViewsApp {
     });
 
     // OSD NAVIGATION
-    this.osdBackButton.addEventListener('click', this.toggleOpenSeadragon);
-    this.osdInfoButton.addEventListener('click', this.toggleInfoModal);
-    this.contentBlocker.addEventListener('click', this.toggleInfoModal);
+    this.$osdBackButton.on('click', this.toggleOpenSeadragon);
+    this.$osdInfoButton.on('click', this.toggleInfoModal);
+    this.$contentBlocker.on('click', this.toggleInfoModal);
   };
 
   //----------
   toggleOpenSeadragon = () => {
     if (!this.openSeadragonShown) {
       this.openSeadragonShown = true;
-      this.mainSection.classList.add('hidden');
-      this.openSeadragonViewer.classList.remove('hidden');
+      this.$mainSection.fadeOut(this.fadeSpeed);
+      this.$openSeadragonViewer.fadeIn(this.fadeSpeed);
       this.createOSDViewer();
     } else {
       this.openSeadragonShown = false;
-      this.mainSection.classList.remove('hidden');
-      this.openSeadragonViewer.classList.add('hidden');
-      this.hideOSDViewer();
+      this.$mainSection.fadeIn(this.fadeSpeed);
+      this.$openSeadragonViewer.fadeOut(this.fadeSpeed);
     }
   };
 
@@ -93,8 +89,8 @@ class ThirtySixViewsApp {
   toggleInfoModal = () => {
     if (!this.infoModalShown) {
       this.infoModalShown = true;
-      $('.controls-info-container').fadeIn();
-      $('.content-blocker').fadeIn();
+      $('.controls-info-container').fadeIn(this.fadeSpeed);
+      $('.content-blocker').fadeIn(this.fadeSpeed);
     } else {
       this.infoModalShown = false;
       this.closeInfoModal();
@@ -103,8 +99,8 @@ class ThirtySixViewsApp {
 
   //----------
   closeInfoModal = () => {
-    $('.controls-info-container').fadeOut();
-    $('.content-blocker').fadeOut();
+    $('.controls-info-container').fadeOut(this.fadeSpeed);
+    $('.content-blocker').fadeOut(App.fadeSpeed);
   };
 
   //----------
@@ -141,7 +137,6 @@ class ThirtySixViewsApp {
     this.viewer.addHandler('open', function() {
       App.arrangeImages();
       App.createOSDOverlays();
-      console.log(App.viewer.viewport);
       let oldBounds = App.viewer.viewport.getBounds();
       let newBounds = new OpenSeadragon.Rect(
         -0.25,
@@ -155,7 +150,7 @@ class ThirtySixViewsApp {
 
   //----------
   arrangeImages = () => {
-    let count = this.viewer.world.getItemCount();
+    const count = this.viewer.world.getItemCount();
     let i, bounds, tiledImage;
     let width = 0;
     let height = 0;
@@ -232,21 +227,20 @@ class ThirtySixViewsApp {
     const overlay = this.viewer.svgOverlay();
     const svgWrapper = overlay.node();
 
-    let count = this.viewer.world.getItemCount();
+    const count = this.viewer.world.getItemCount();
     let i, bounds, tiledImage;
 
     for (i = 0; i < count; i++) {
-      // console.log('make card overlay', i);
       let metadata = this.hokusaiData[i];
       tiledImage = this.viewer.world.getItemAt(i);
       bounds = tiledImage.getBounds();
 
       // Initialize SVG.js Wrapper
-      let draw = SVG(svgWrapper).size('100vw', '100vh');
-      let card = draw.nested();
+      const draw = SVG(svgWrapper).size('100vw', '100vh');
+      const card = draw.nested();
 
       // Make Card Rectangle
-      let rect = card.rect(0.3, 0.1).attr({
+      const rect = card.rect(0.3, 0.1).attr({
         fill: '#fffcf7',
         stroke: 'rgba(0, 0, 0, 0.08)',
         'stroke-width': 0.02
@@ -399,11 +393,7 @@ class ThirtySixViewsApp {
   };
 
   //----------
-  hideOSDViewer = () => this.openSeadragonViewer.classList.add('hidden');
-
-  //----------
   setTiledImagePlaceholder = (tiledImage, ctx) => {
-    console;
     let img = new Image();
     img.src = '../assets/bg/felt.png';
     img.onload = function() {
