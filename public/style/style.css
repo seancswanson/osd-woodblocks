@@ -456,11 +456,6 @@ main {
     background-size: cover;
   }
 
-  .main-collage {
-    background: url('../assets/hokusai-collage.jpeg');
-    background-size: cover;
-  }
-
   .text-content-nav {
     display: -webkit-box;
     display: -ms-flexbox;
