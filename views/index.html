@@ -1,96 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>The Majesty of 36 Views of Mt. Fuji</title>
-    <meta name="description" content="A viewer for Japanese Woodblock Prints">
-    <link id="favicon" rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans+JP:200,300,400" rel="stylesheet">
-    <link rel="stylesheet" href="/style/style.css">
-  </head>
-  <body>
-    <main>
-      <div class="intro">
-        <div class="title">
-          <h1>The Majesty of The Thirty-Six Views of Mt. Fuji</h1>
-          <p class="title-name">A Tribute to Katsushika Hokusai</p>
-          <img class="title-signature" src="../assets/hokusai-sig2.svg" onerror="this.src='../assets/hokusai-sig.png'">
-          <!-- <p class="title-signature">北斎改為一筆</p> -->
-          <!-- <p class="title-life">c. October 31, 1760 – May 10, 1849</p> -->
-        </div>
-        <div class="text-content-nav">
-          <button class="nav-button" id="about-btn"><p>About</p></button>
-          <button class="nav-button" id="bio-btn"><p>Artist Bio</p></button>
-          <button class="nav-button" id="gallery-btn"><div class="gallery-icon gallery-icon-white"></div><p>Gallery</p></button>
-        </div>
-        <div class="text-content-wrapper about-section">
-          <p>Welcome to an interactive gallery of the most iconic collection of Japanese woodblock art.</p>
-          <span class="text-content-instructions">To explore all 36 prints in high resolution, select <div class="gallery-icon gallery-icon-black"></div> <span class="gallery-span">GALLERY</span> from the bar above.</span>
-          <hr class="text-content-divider">
-          <p>Some artists found inspiration in human muses: Rodin had Claudel, Picasso had his <em>Weeping Woman</em> Dora Maar, and Warhol had Edie Sedgwick...</p>
 
-          <p>What strikes me most about Hokusai is his reverance for natural monuments in and of his home country, notably Mt. Fuji. It's no mystery that prints like <em>The Great Wave off Kanagawa</em> have transcended time to remain as iconic as they were when Hokusai was first working. His scenary captures every potentiality of one's observation of Fuji and manages to never overstate it's sublimity- the Mountain simply is.</p>
+<head>
+  <title>The Majesty of 36 Views of Mt. Fuji</title>
+  <meta name="description" content="A viewer for Japanese Woodblock Prints">
+  <link id="favicon" rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans+JP:200,300,400" rel="stylesheet">
+  <link rel="stylesheet" href="/style/style.css">
+</head>
 
-          <p>To me, in the context of Fuji in all of the four seasons and its different viewing angles in the series, I find it natural to relate to Hokusai with my own experiences of unspoiled beauty that I've stumbled upon in my lifetime. Despite the some 260 years separating Hokusai's and my own life, it seems the contemplation of nature and artistic representation of such subjects (especially in some circumstances where the subjects could be perilous) remains something ingrained in the human condition.</p>
+<body>
+  <main>
+    <div class="intro">
+      <div class="title">
+        <h1>The Majesty of The Thirty-Six Views of Mt. Fuji</h1>
+        <p class="title-name">A Tribute to Katsushika Hokusai</p>
+        <img class="title-signature" src="../assets/hokusai-sig2.svg" onerror="this.src='../assets/hokusai-sig.png'">
+        <!-- <p class="title-signature">北斎改為一筆</p> -->
+        <!-- <p class="title-life">c. October 31, 1760 – May 10, 1849</p> -->
+      </div>
+      <div class="text-content-nav">
+        <button class="nav-button" id="about-btn">
+          <p>About</p>
+        </button>
+        <button class="nav-button" id="bio-btn">
+          <p>Artist Bio</p>
+        </button>
+        <button class="nav-button" id="gallery-btn">
+          <div class="gallery-icon gallery-icon-white"></div>
+          <p>Gallery</p>
+        </button>
+      </div>
+      <div class="text-content-wrapper about-section">
+        <p>Welcome to an interactive gallery of the most iconic collection of Japanese woodblock art.</p>
+        <span class="text-content-instructions">To explore all 36 prints in high resolution, select <div
+            class="gallery-icon gallery-icon-black"></div> <span class="gallery-span">GALLERY</span> from the bar
+          above.</span>
+        <hr class="text-content-divider">
+        <p>Some artists found inspiration in human muses: Rodin had Claudel, Picasso had his <em>Weeping Woman</em> Dora
+          Maar, and Warhol had Edie Sedgwick...</p>
 
-          <p>This project was crafted to honor Hokusai and the collection of artwork that has inspired me immensely. As of December 30th, 2018, I have yet to see any his pieces in person so this is the next best thing! Please enjoy and check out the source code and technologies used on <a href="github.com/seanthaswan/osd-woodblocks" class="osd-github-link">GitHub</a>.</p>
+        <p>What strikes me most about Hokusai is his reverence for natural monuments in and of his home country, notably
+          Mt. Fuji. It's no mystery that prints like <em>The Great Wave off Kanagawa</em> have transcended time to
+          remain as iconic as they were when Hokusai was first working. His scenary captures every potentiality of one's
+          observation of Fuji and manages to never overstate it's sublimity- the Mountain simply is.</p>
 
-          <p>I appreciate <em>you</em> for checking out <strong>The Majesty of The Thirty-Six Views of Mt. Fuji</strong>. ♡ <a href="http://www.seancswanson.com" class="love">Sean Swanson</a></p>
-        </div>
-        <div class="text-content-wrapper bio-section">
-            <div class="text-content bio">
-              <p>“Katsushika Hokusai (Japanese, 1760–1849) was a Japanese artist, ukiyo-e painter, and printmaker during the Edo period. Born to an artisan family in present-day Tokyo, he began painting at a young age, and became apprenticed to a wood-carver as a teenager. At the age of 18, he was accepted into the studio of Katsukawa Shunsho, an artist of the ukiyo-e style, which was focused on the depiction of the booming merchant class, including courtesans, Kabuki actors, and sumo wrestlers. After Shunsho's death, Hokusai began experimenting with other styles of art, including Western styles. But he didn't fully develop his own signature technique until he was expelled from the Katsukawa School.</p>
+        <p>To me, in the context of Fuji in all of the four seasons and its different viewing angles in the series, I
+          find it natural to relate to Hokusai with my own experiences of unspoiled beauty that I've stumbled upon in my
+          lifetime. Despite some 260 years separating Hokusai's and my own life, it seems the contemplation of nature
+          and artistic representation of such subjects (especially in some circumstances where the subjects could be
+          perilous) remains something ingrained in the human condition.</p>
 
-              <p>During his lifetime, Hokusai was known as the leading expert on Chinese painting in Japan. He is best-known for the woodblock print series 36 Views of Mount Fuji, which includes the iconic image, The Great Wave off Kanagawa. Hokusai created 36 Views both as a response to an increase in domestic travel and as part of a personal fascination with Mount Fuji. It was this series, specifically The Great Wave print and Fuji in Clear Weather, that gained Hokusai international fame.</p>
+        <p>This project was crafted to honor Hokusai and the collection of artwork that has inspired me immensely. As of
+          December 30th, 2018, I have yet to see any his pieces in person so this is the next best thing! Please enjoy
+          and check out the source code and technologies used on <a href="github.com/seanthaswan/osd-woodblocks"
+            class="osd-github-link">GitHub</a>.</p>
 
-              <p>Hokusai had a profound impact on Western art, which was increasingly influenced by Japanese culture and style beginning in the 19th century. Artists such as Édouard Manet, Claude Monet, and Vincent van Gogh were all inspired by his wood-block prints.”</p>
-              <p>- Biography from <a class="artnet-link" href="http://www.artnet.com/artists/katsushika-hokusai/biography">artnet</a></p>
-            </div>
-          </div>
+        <p>I appreciate <em>you</em> for checking out <strong>The Majesty of The Thirty-Six Views of Mt. Fuji</strong>.
+          ♡ <a href="http://www.seancswanson.com" class="love">Sean Swanson</a></p>
+      </div>
+      <div class="text-content-wrapper bio-section">
+        <div class="text-content bio">
+          <p>“Katsushika Hokusai (Japanese, 1760–1849) was a Japanese artist, ukiyo-e painter, and printmaker during the
+            Edo period. Born to an artisan family in present-day Tokyo, he began painting at a young age, and became
+            apprenticed to a wood-carver as a teenager. At the age of 18, he was accepted into the studio of Katsukawa
+            Shunsho, an artist of the ukiyo-e style, which was focused on the depiction of the booming merchant class,
+            including courtesans, Kabuki actors, and sumo wrestlers. After Shunsho's death, Hokusai began experimenting
+            with other styles of art, including Western styles. But he didn't fully develop his own signature technique
+            until he was expelled from the Katsukawa School.</p>
+
+          <p>During his lifetime, Hokusai was known as the leading expert on Chinese painting in Japan. He is best-known
+            for the woodblock print series 36 Views of Mount Fuji, which includes the iconic image, The Great Wave off
+            Kanagawa. Hokusai created 36 Views both as a response to an increase in domestic travel and as part of a
+            personal fascination with Mount Fuji. It was this series, specifically The Great Wave print and Fuji in
+            Clear Weather, that gained Hokusai international fame.</p>
+
+          <p>Hokusai had a profound impact on Western art, which was increasingly influenced by Japanese culture and
+            style beginning in the 19th century. Artists such as Édouard Manet, Claude Monet, and Vincent van Gogh were
+            all inspired by his wood-block prints.”</p>
+          <p>- Biography from <a class="artnet-link"
+              href="http://www.artnet.com/artists/katsushika-hokusai/biography">artnet</a></p>
         </div>
       </div>
-      <div class="main-image main-collage"></div>
-    </main>
-    <div id="openseadragon">
-      <div class="controls">
-        <div class="controls-button osd-back-button"></div>
-        <div class="controls-button" id="osd-home-button"></div>
-        <div class="controls-button"id="osd-zoom-in-button"></div>
-        <div class="controls-button" id="osd-zoom-out-button"></div>
-        <div class="controls-button" id="osd-full-screen-button"></div>
-      </div>
-      <div class="controls-info-container">
-        <div class="controls-info-modal">
-          <div class="control-info-source">
-            <p>Open access, public domain images sourced from:</p>
-            <p>The Metropolitan Museum of Art</p>
-            <p>NYC, NY.</p>
-            <a class="source-link" href="https://www.metmuseum.org/">metmuseum.org</a>
-            <a class="source-link" href="https://twitter.com/metmuseum/">@metmuseum</a>
-          </div>
-          <img src="../assets/icons/the-met.png" alt="" class="control-info-logo">
-        </div>
-      </div>
-      <div class="controls-button source-info-button"></div>
-      <div class="content-blocker"></div>
     </div>
+    </div>
+    <div class="main-image main-collage"></div>
+  </main>
+  <div id="openseadragon">
+    <div class="controls">
+      <div class="controls-button osd-back-button"></div>
+      <div class="controls-button" id="osd-home-button"></div>
+      <div class="controls-button" id="osd-zoom-in-button"></div>
+      <div class="controls-button" id="osd-zoom-out-button"></div>
+      <div class="controls-button" id="osd-full-screen-button"></div>
+    </div>
+    <div class="controls-info-container">
+      <div class="controls-info-modal">
+        <div class="control-info-source">
+          <p>Open access, public domain images sourced from:</p>
+          <p>The Metropolitan Museum of Art</p>
+          <p>NYC, NY.</p>
+          <a class="source-link" href="https://www.metmuseum.org/">metmuseum.org</a>
+          <a class="source-link" href="https://twitter.com/metmuseum/">@metmuseum</a>
+        </div>
+        <img src="../assets/icons/the-met.png" alt="" class="control-info-logo">
+      </div>
+    </div>
+    <div class="controls-button source-info-button"></div>
+    <div class="content-blocker"></div>
+  </div>
 
-    <footer>
-      &copy; 2018<a class="footer-link" href="http://www.seancswanson.com">Sean Swanson</a>
-    </footer>
+  <footer>
+    &copy; 2018<a class="footer-link" href="http://www.seancswanson.com">Sean Swanson</a>
+  </footer>
 
-    <!-- include the Glitch button to show what the webpage is about and
+  <!-- include the Glitch button to show what the webpage is about and
           to make it easier for folks to view source and remix -->
-    <!--     <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+  <!--     <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
     <script src="https://button.glitch.me/button.js"></script> -->
-    <script src="/lib/jquery-3.3.1.min.js"></script>
-    <script src="/lib/svg.min.js"></script>
-    <script src="/lib/openseadragon/openseadragon.min.js"></script>
-    <script src="/lib/openseadragon/openseadragon-svg-overlay.min.js"></script>
-    <script src="/build/main.bundle.js" defer></script>
+  <script src="/lib/jquery-3.3.1.min.js"></script>
+  <script src="/lib/svg.min.js"></script>
+  <script src="/lib/openseadragon/openseadragon.min.js"></script>
+  <script src="/lib/openseadragon/openseadragon-svg-overlay.min.js"></script>
+  <script src="/build/main.bundle.js" defer></script>
 
 
-  </body>
+</body>
+
 </html>
