@@ -17,11 +17,15 @@ An interactive gallery of the most iconic collection of Japanese woodblock art b
 
 ### Background
 
-What strikes me most about Hokusai is his reverance for natural monuments in and of his home country, notably Mt. Fuji. It's no mystery that prints like The Great Wave off Kanagawa have transcended time to remain as iconic as they were when Hokusai was first working. His scenary captures every potentiality of one's observation of Fuji and manages to never overstate it's sublimity- the Mountain simply is.
+Some artists found inspiration in human muses: Rodin had Claudel, Picasso had his Weeping Woman Dora Maar, and Warhol had Edie Sedgwick...
 
-To me, in the context of Fuji in all of the four seasons and its different viewing angles in the series, I find it natural to relate to Hokusai with my own experiences of unspoiled beauty that I've stumbled upon in my lifetime. Despite the some 260 years separating Hokusai's and my own life, it seems the contemplation of nature and artistic representation of such subjects (especially in some circumstances where the subjects could be perilous) remains something ingrained in the human condition.
+What strikes me most about Hokusai is his reverence for natural monuments in and of his home country, notably Mt. Fuji. It's no mystery that prints like The Great Wave off Kanagawa have transcended time to remain as iconic as they were when Hokusai was first working. His scenary captures every potentiality of one's observation of Fuji and manages to never overstate it's sublimity- the Mountain simply is.
 
-This project was crafted to honor Hokusai and the collection of artwork that has inspired me immensely. As of December 30th, 2018, I have yet to see any his pieces in person so this is the next best thing!
+To me, in the context of Fuji in all of the four seasons and its different viewing angles in the series, I find it natural to relate to Hokusai with my own experiences of unspoiled beauty that I've stumbled upon in my lifetime. Despite some 260 years separating Hokusai's and my own life, it seems the contemplation of nature and artistic representation of such subjects (especially in some circumstances where the subjects could be perilous) remains something ingrained in the human condition.
+
+This project was crafted to honor Hokusai and the collection of artwork that has inspired me immensely. As of December 30th, 2018, I have yet to see any his pieces in person so this is the next best thing! Please enjoy and check out the source code and technologies used on GitHub.
+
+I appreciate you for checking out The Majesty of The Thirty-Six Views of Mt. Fuji. ♡ Sean Swanson
 
 ### Sources
 
